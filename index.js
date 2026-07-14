@@ -11,11 +11,7 @@ app.get('/', (req, res) => {
     return res.send(`สวัสดียามเช้า`);
 });
 
-<<<<<<< HEAD
-//ค้นหา user โดยใช้ parameter by ID: http://localhost:3000/users/101
-=======
 // 1. Dynamic Route :http://localhost:3000/users/101
->>>>>>> develop
 app.get('/users/:id', (req, res) => {
     const user = users.find((u) => u.id === req.params.id);
     user ? res.status(200).json(user) : res.status(404).json({ error: "Not Found" })
