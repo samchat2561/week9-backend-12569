@@ -11,13 +11,15 @@ app.get('/', (req, res) => {
     return res.send(`สวัสดียามเช้า`);
 });
 
-// 1. Dynamic Route :http://localhost:3000/users/101
+// 1. Dynamic Route (สั้นกระชับ ค้นหาแล้วส่งผลลัพธ์ทันที)
+// http://localhost:3000/users/101
 app.get('/users/:id', (req, res) => {
     const user = users.find((u) => u.id === req.params.id);
     user ? res.status(200).json(user) : res.status(404).json({ error: "Not Found" })
 });
 
 // 2. Query Route (ลดรูปตัวแปรและใช้ Array Methods บรรทัดเดียว)
+// http://localhost:3000/search?keyword=Somchai
 app.get('/search', (req, res) => {
     const { keyword = '', limit = 10 } = req.query;
     const result = users.filter(u => u.name.toLowerCase().includes(keyword.toLowerCase()));
