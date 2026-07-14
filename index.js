@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
     return res.send(`สวัสดียามเช้า`);
 });
 
+//ค้นหา user โดยใช้ parameter by ID: http://localhost:3000/users/101
 app.get('/users/:id', (req, res) => {
     const user = users.find((u) => u.id === req.params.id);
     user ? res.status(200).json(user) : res.status(404).json({ error: "Not Found" })
